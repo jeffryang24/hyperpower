@@ -111,10 +111,8 @@ exports.decorateTerm = (Term, { React, notify }) => {
 
     _onDecorated (term) {
       // Prevent plugin error notification caused by null term variable
-      if (term) {
-        if (this.props.onDecorated) this.props.onDecorated(term);
-        this._div = term.termRef;
-      }
+      if (this.props.onDecorated) this.props.onDecorated(term);
+      this._div = term ? term.termRef : null;
       this._initCanvas();
     }
 
